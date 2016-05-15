@@ -60,3 +60,8 @@ config :logger, level: :info
 # for the new static assets to be served after a hot upgrade:
 #
 #     config :hello, Hello.Endpoint, root: "."
+config :hello, Hello.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABASE_URL"),
+  pool_size: 20,
+  ssl: true
